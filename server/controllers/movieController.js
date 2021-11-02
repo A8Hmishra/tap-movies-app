@@ -50,12 +50,11 @@ const getMovie = async (req, res) => {
 }
 
 const addMovie = async (req, res) => {
-    const { title, year_of_release, poster, rating } = req.body;
+    const { title, poster, rating } = req.body;
 
     try {
         const createdMovie = await Movies.create({
             title,
-            year_of_release,
             rating,
             poster
         });
