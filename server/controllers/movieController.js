@@ -70,9 +70,37 @@ const addMovie = async (req, res) => {
     }
 }
 
+const updateMovie = async (req, res) => {
+    const { id } = req.params;
+    const { title, poster, rating } = req.body;
+
+    try {
+        const updatedMovie = await Movies.update({
+            title,
+            rating,
+            poster
+        }, {
+            where:
+                { id }
+        }
+        );
+        return res.json({
+            message: 'Movie Created Successfully',
+            movie: updatedMovie
+        });
+    }
+    catch (e) {
+        res.status(500).json({
+            message: e.message
+        });
+    }
+};
+
+
 
 module.exports = {
     getAllMovies,
     getMovie,
-    addMovie
+    addMovie,
+    updateMovie
 }

@@ -48,6 +48,11 @@ const Home = () => {
         history.push(`/${id}`);
     }
 
+    const onClickUpdateMovie = ({ id }) => {
+        console.log("button clicked");
+        history.push(`/update/${id}`);
+    }
+
     return (
 
         <>
@@ -63,7 +68,8 @@ const Home = () => {
                                     <Card.Title>{title}</Card.Title>
                                     <Card.Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                     </Card.Text>
-                                    <Button variant="primary" onClick={() => onClickViewMovie(movie)}>View Movie</Button>
+                                    <Button variant="primary me-2" onClick={() => onClickViewMovie(movie)}>View Movie</Button>
+                                    <Button variant="danger" onClick={() => onClickUpdateMovie(movie)}>Edit Movie</Button>
                                 </Card.Body>
                             </Card>)
                     })}
