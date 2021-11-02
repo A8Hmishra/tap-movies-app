@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom'
+import axios from 'axios';
 
 const AddMovie = () => {
     const [formValues, setFormValues] = useState({});
@@ -17,7 +18,8 @@ const AddMovie = () => {
 
     const onClickSubmit = async () => {
         try {
-            await fetch('http://localhost:4000/api/movies', {
+            await axios({
+                url: 'http://localhost:4000/api/movies',
                 method: 'POST',
                 data: formValues
             });

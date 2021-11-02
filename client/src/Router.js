@@ -14,7 +14,7 @@ const Router = function () {
       <Route exact path="/add-Movies">
         <AddMovies />
       </Route>
-      <Route path="/:movieId">
+      <Route exact path="/:movieId">
         <MovieDetails />
       </Route>
     </Switch>
