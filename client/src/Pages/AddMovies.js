@@ -19,7 +19,7 @@ const AddMovie = () => {
     const onClickSubmit = async () => {
         try {
             await axios({
-                url: 'http://localhost:4000/api/movies',
+                url: 'http://localhost:4001/api/movies',
                 method: 'POST',
                 data: formValues
             });

@@ -1,5 +1,6 @@
-
+const { isEmpty } = require("lodash");
 const { Op } = require("sequelize");
+
 
 
 const db = require("../models");
@@ -96,11 +97,43 @@ const updateMovie = async (req, res) => {
     }
 };
 
+const deleteMovie = async (req, res) => {
+    try {
+      const { id } = req.params;
+      if (!isEmpty(id)) {
+        const data = await Movies.findOne({ where: { id: id } });
+        if (!isEmpty(data)) {
+          const updatedData = await Movies.destroy({ where: {id } });
+          res.status(202).json({
+            status: true,
+            message: `Given id ${id} data deleted successfully`,
+          });
+        } else {
+          return res
+            .status(404)
+            .json({ status: false, message: "Given id is not found" });
+        }
+      } else {
+        return res.status(400).json({
+          status: false,
+          message: "id is Mandatory field, Please enter imdbId",
+        });
+      }
+    } catch (err) {
+      console.log(err);
+      res
+        .status(400)
+        .json({ status: false, message: "Something went wrong.. Contact Admin" });
+    }
+  };
+
 
 
 module.exports = {
     getAllMovies,
     getMovie,
     addMovie,
-    updateMovie
+    updateMovie,
+    deleteMovie
+
 }

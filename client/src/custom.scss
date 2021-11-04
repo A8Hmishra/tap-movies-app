@@ -1,11 +1,15 @@
 $primary: #5e00d9;
-$danger: #368dff;
+$danger: #ff3636;
 
 
 @import '~bootstrap/scss/bootstrap';
 
+#root{
+    height: 100vh;
+}
+
 .movies1{
-    width:350px;
+    width:45%;
 }
 .back{
     background-color: grey;

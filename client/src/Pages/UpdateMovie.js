@@ -21,7 +21,7 @@ const AddMovie = () => {
     const onClickSubmit = async () => {
         try {
             await axios({
-                url: `http://localhost:4000/api/movies/update/${movieId}`,
+                url: `http://localhost:4001/api/movies/update/${movieId}`,
                 method: 'PATCH',
                 data: formValues
             });

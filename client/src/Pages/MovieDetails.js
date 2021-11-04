@@ -18,7 +18,7 @@ function MovieDetails() {
     const fetchMovieDetails = async () => {
         try {
             setLoading(true);
-            const response = await fetch(`http://localhost:4000/api/movies/${movieId}`);
+            const response = await fetch(`http://localhost:4001/api/movies/${movieId}`);
             setLoading(false);
             const data = await response.json();
             console.log(data);
